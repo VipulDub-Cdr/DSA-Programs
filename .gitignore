@@ -1,0 +1,9 @@
+# Ignore compiled C++ object files
+*.o
+
+# Ignore executable files (Linux/macOS)
+*.out
+*.exe
+
+# Ignore core dump files
+core
