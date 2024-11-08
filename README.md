@@ -21,3 +21,4 @@ Topics
 # List of the questions covered  
 Array (Easy)    
 1. Largest element in an array
+2. Second largest element in an array
