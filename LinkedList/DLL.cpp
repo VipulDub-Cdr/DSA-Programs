@@ -46,7 +46,6 @@ Node* insertTail(Node *head,int val){
     return head;
 }
 int main() {
-    //hello
     Node* head   = new Node(10);
     Node* second = new Node(15,NULL,head);
     head->next = second;
