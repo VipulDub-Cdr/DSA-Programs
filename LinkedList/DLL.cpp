@@ -45,6 +45,46 @@ Node* insertTail(Node *head,int val){
     newNode->back = tail;
     return head;
 }
+Node* deleteHead(Node *head){
+    if(head==NULL || head->next==NULL){
+        return NULL;
+    }
+    Node *prev = head;
+    head = head->next;
+    prev->next = NULL;
+    head->back = NULL;
+    delete prev;
+    return head;
+
+}
+Node* deleteTail(Node *head){
+    if(head->next==NULL || head==NULL){
+        return NULL;
+    }
+    Node *tail = head;
+    while(tail->next!=NULL){
+        tail=tail->next;
+    }
+    Node *newTail = tail->back;
+    newTail->next = NULL;
+    delete tail;
+    return head;
+}
+//without using stack
+Node *reverseDLL(Node *head){
+    if(head->next==NULL || head==NULL){
+        return head;
+    }
+    Node* current = head;
+    Node* prev = NULL;
+    while(current!=NULL){
+        prev = current->back;
+        current->next = prev;
+        current->back = current->next;
+        current = current->back;
+    }
+    return prev->back;
+}
 int main() {
     Node* head   = new Node(10);
     Node* second = new Node(15,NULL,head);
@@ -53,7 +93,9 @@ int main() {
     second->next = third;
     Node* fourth = new Node(25,NULL,third);
     third->next = fourth;
-    head = insertHead(head,30);
+    head = insertHead(head,5);
+    head = deleteHead(head);
+    head = deleteTail(head);
     printDLL(head);
     return 0;
 }
